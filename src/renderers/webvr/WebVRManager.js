@@ -156,8 +156,8 @@ function WebVRManager( renderer ) {
 		cameraL.far = camera.far;
 		cameraR.far = camera.far;
 
-		cameraVR.matrixWorld.copy( camera.matrixWorld );
-		cameraVR.matrixWorldInverse.copy( camera.matrixWorldInverse );
+		// cameraVR.matrixWorld.copy( camera.matrixWorld );
+		// cameraVR.matrixWorldInverse.copy( camera.matrixWorldInverse );
 
 		cameraL.matrixWorldInverse.fromArray( frameData.leftViewMatrix );
 		cameraR.matrixWorldInverse.fromArray( frameData.rightViewMatrix );
@@ -191,8 +191,8 @@ function WebVRManager( renderer ) {
 		// HACK (mrdoob)
 		// https://github.com/w3c/webvr/issues/203
 
-		cameraVR.projectionMatrix.copy( cameraL.projectionMatrix );
-
+		// cameraVR.projectionMatrix.copy( cameraL.projectionMatrix );
+		cameraVR.setProjectionFromUnion();
 		//
 
 		var layers = device.getLayers();
